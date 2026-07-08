@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.5 on win32)" generated="2026-07-08T16:51:17.552174" rpa="false" schemaversion="5">
+<suite id="s1" name="firstTest" source="D:\TI\QA\DEVELOPMENT\appium_robot_bdd\tests\firstTest.robot">
+<test id="s1-t1" name="Should open and close the application" line="6">
+<kw name="Given the application is started" owner="base">
+<kw name="Start session" owner="base">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>http://localhost:4723</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=Emulator</arg>
+<arg>udid=emulator-5554</arg>
+<arg>app=${APP}</arg>
+<arg>autoGrantPermissions=true</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-07-08T16:51:17.788149" elapsed="5.266574"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:17.787885" elapsed="5.266926"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:17.787656" elapsed="5.267185"/>
+</kw>
+<kw name="When the title should be visible" owner="base">
+<kw name="Wait For Home Element" owner="firstTest">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-07-08T16:51:27.192294" level="INFO">criteria is com.food.diary:id/toolbar</msg>
+<arg>${HOME_ELEMENT}</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-07-08T16:51:23.055389" elapsed="4.137025"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:23.055239" elapsed="4.137258"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:23.055075" elapsed="4.137463"/>
+</kw>
+<kw name="Then the application should be closed" owner="base">
+<kw name="Close session" owner="base">
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-07-08T16:51:27.193256" elapsed="2.333134"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:27.193108" elapsed="2.333350"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:27.192878" elapsed="2.333601"/>
+</kw>
+<status status="PASS" start="2026-07-08T16:51:17.787063" elapsed="11.739583"/>
+</test>
+<status status="PASS" start="2026-07-08T16:51:17.553260" elapsed="11.973746"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="firstTest" id="s1" pass="1" fail="0" skip="0">firstTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
