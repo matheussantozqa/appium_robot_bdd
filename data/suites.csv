@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Jul 11 23:00:46 UTC 2026","Sat Jul 11 23:01:01 UTC 2026","15296","","Tests","firstTest","","","TC001 - Should open and close the application",""
