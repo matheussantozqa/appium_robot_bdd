@@ -1,0 +1,57 @@
+name: Appium + Robot Framework - BrowserStack
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências Python
+        run: pip install -r requirements.txt
+
+      - name: Upload do APK para a BrowserStack
+        run: |
+          response=$(curl -s -u "$BROWSERSTACK_USERNAME:$BROWSERSTACK_ACCESS_KEY" \
+            -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
+            -F "file=@app/Food_Diary.apk")
+          echo "Resposta: $response"
+          app_url=$(echo "$response" | jq -r '.app_url')
+          if [ "$app_url" = "null" ] || [ -z "$app_url" ]; then
+            echo "Falha ao subir o app na BrowserStack"; exit 1
+          fi
+          echo "BROWSERSTACK_APP_URL=$app_url" >> "$GITHUB_ENV"
+
+      - name: Rodar testes Robot Framework na BrowserStack
+        run: |
+          robot \
+            --variable USE_BROWSERSTACK:true \
+            --variable BROWSERSTACK_APP_URL:"$BROWSERSTACK_APP_URL" \
+            --variable BROWSERSTACK_USERNAME:"$BROWSERSTACK_USERNAME" \
+            --variable BROWSERSTACK_ACCESS_KEY:"$BROWSERSTACK_ACCESS_KEY" \
+            --variable BUILD_NUMBER:"$GITHUB_RUN_NUMBER" \
+            --outputdir results \
+            tests/
+
+      - name: Publicar relatórios do Robot como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-results
+          path: results/
