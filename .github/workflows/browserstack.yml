@@ -7,6 +7,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -46,6 +49,13 @@ jobs:
           unzip -q allure.zip -d $HOME
           echo "$HOME/allure-2.29.0/bin" >> $GITHUB_PATH
 
+      - name: Baixar histórico anterior do Allure
+        continue-on-error: true
+        run: |
+          git clone --depth 1 --branch gh-pages https://github.com/${{ github.repository }}.git gh-pages-clone
+          mkdir -p allure-results/history
+          cp -r gh-pages-clone/history/* allure-results/history/ 2>/dev/null || true
+
       - name: Rodar testes Robot Framework na BrowserStack
         id: run_tests
         continue-on-error: true
@@ -60,12 +70,30 @@ jobs:
             --outputdir results \
             tests/
 
-      - name: Baixar histórico anterior do Allure
-        continue-on-error: true
+      - name: Criar executor, categorias e ambiente para o Allure
+        if: always()
         run: |
-          git clone --depth 1 --branch gh-pages https://github.com/${{ github.repository }}.git gh-pages-clone
-          mkdir -p allure-results/history
-          cp -r gh-pages-clone/history/* allure-results/history/ 2>/dev/null || true
+          cp categories.json allure-results/categories.json
+
+          cat > allure-results/executor.json << EOF
+          {
+            "name": "GitHub Actions",
+            "type": "github",
+            "url": "https://github.com/${{ github.repository }}",
+            "buildOrder": ${{ github.run_number }},
+            "buildName": "Build ${{ github.run_number }}",
+            "buildUrl": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "reportUrl": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          }
+          EOF
+
+          cat > allure-results/environment.properties << EOF
+          Plataforma=Android
+          Dispositivo=Google Pixel 7
+          Execucao=BrowserStack App Automate
+          Build=${{ github.run_number }}
+          Branch=${{ github.ref_name }}
+          EOF
 
       - name: Gerar relatório Allure
         if: always()
@@ -78,4 +106,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
           keep_files: false
-

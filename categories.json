@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Falhas de elemento não encontrado",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Element.*not found.*|.*not visible.*"
+  },
+  {
+    "name": "Falhas de conexão/sessão",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*session.*|.*connection.*|.*timeout.*"
+  },
+  {
+    "name": "Falhas de asserção",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*should be.*|.*should contain.*"
+  }
+]
