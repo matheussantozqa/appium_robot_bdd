@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.14.5 on win32)" generated="2026-07-10T11:12:48.270823" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.14.5 on win32)" generated="2026-07-11T20:08:20.099248" rpa="false" schemaversion="5">
 <suite id="s1" name="firstTest" source="D:\TI\QA\DEVELOPMENT\appium_robot_bdd\tests\firstTest.robot">
 <test id="s1-t1" name="TC001 - Should open and close the application" line="7">
 <kw name="Given the application is started" owner="firstTest">
 <kw name="Start session" owner="openApp">
+<if>
+<branch type="IF" condition="'${USE_BROWSERSTACK}' == 'true'">
+<kw name="Open Application On BrowserStack" owner="openApp">
+<status status="NOT RUN" start="2026-07-11T20:08:20.338036" elapsed="0.000012"/>
+</kw>
+<status status="NOT RUN" start="2026-07-11T20:08:20.337914" elapsed="0.000162"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Application Local" owner="openApp">
 <kw name="Open Application" owner="AppiumLibrary">
 <arg>http://localhost:4723</arg>
 <arg>automationName=UiAutomator2</arg>
@@ -18,37 +27,43 @@ Please check https://appium.io/docs/en/2.19/guides/caps/
 | *Option*            | *Man.* | *Description*     |
 | remote_url          | Yes    | Appium server url |
 | alias               | No     | alias             |</doc>
-<status status="PASS" start="2026-07-10T11:12:48.478882" elapsed="4.564053"/>
+<status status="PASS" start="2026-07-11T20:08:20.338415" elapsed="8.094640"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:48.478629" elapsed="4.564397"/>
+<status status="PASS" start="2026-07-11T20:08:20.338146" elapsed="8.094992"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:48.478434" elapsed="4.564622"/>
+<status status="PASS" start="2026-07-11T20:08:20.338093" elapsed="8.095060"/>
+</branch>
+<status status="PASS" start="2026-07-11T20:08:20.337898" elapsed="8.095273"/>
+</if>
+<status status="PASS" start="2026-07-11T20:08:20.337796" elapsed="8.095406"/>
+</kw>
+<status status="PASS" start="2026-07-11T20:08:20.337498" elapsed="8.095722"/>
 </kw>
 <kw name="When the title should be visible" owner="firstTest">
 <kw name="Wait For Home Element" owner="firstTest">
 <kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
-<msg time="2026-07-10T11:12:57.186118" level="INFO">criteria is com.food.diary:id/toolbar</msg>
+<msg time="2026-07-11T20:08:32.576911" level="INFO">criteria is com.food.diary:id/toolbar</msg>
 <arg>${homepage.homeElement}</arg>
 <doc>Waits until the element specified by the ``locator`` is visible.</doc>
-<status status="PASS" start="2026-07-10T11:12:53.043564" elapsed="4.142630"/>
+<status status="PASS" start="2026-07-11T20:08:28.433754" elapsed="4.143223"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:53.043455" elapsed="4.142787"/>
+<status status="PASS" start="2026-07-11T20:08:28.433641" elapsed="4.143387"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:53.043296" elapsed="4.142967"/>
+<status status="PASS" start="2026-07-11T20:08:28.433470" elapsed="4.143580"/>
 </kw>
 <kw name="Then the application should be closed" owner="firstTest">
 <kw name="Close session" owner="firstTest">
 <kw name="Close Application" owner="AppiumLibrary">
 <doc>Closes the current application and the webdriver session.</doc>
-<status status="PASS" start="2026-07-10T11:12:57.186757" elapsed="2.326151"/>
+<status status="PASS" start="2026-07-11T20:08:32.577723" elapsed="2.277101"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:57.186665" elapsed="2.326306"/>
+<status status="PASS" start="2026-07-11T20:08:32.577568" elapsed="2.277321"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:57.186511" elapsed="2.326481"/>
+<status status="PASS" start="2026-07-11T20:08:32.577328" elapsed="2.277585"/>
 </kw>
-<status status="PASS" start="2026-07-10T11:12:48.478018" elapsed="11.035146"/>
+<status status="PASS" start="2026-07-11T20:08:20.336818" elapsed="14.518317"/>
 </test>
-<status status="PASS" start="2026-07-10T11:12:48.271747" elapsed="11.241786"/>
+<status status="PASS" start="2026-07-11T20:08:20.100409" elapsed="14.755214"/>
 </suite>
 <statistics>
 <total>
