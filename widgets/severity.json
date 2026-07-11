@@ -1,1 +1,1 @@
-[{"uid":"15d639bdc34ec55c","name":"TC001 - Should open and close the application","time":{"start":1783811812816,"stop":1783811828093,"duration":15277},"status":"passed","severity":"normal"}]
+[{"uid":"b359bdc583c3c37a","name":"TC001 - Should open and close the application","time":{"start":1783812103731,"stop":1783812148610,"duration":44879},"status":"failed","severity":"normal"}]
