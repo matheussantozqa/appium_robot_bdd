@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.14.5 on win32)" generated="2026-07-08T16:51:17.552174" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.14.5 on win32)" generated="2026-07-10T11:12:48.270823" rpa="false" schemaversion="5">
 <suite id="s1" name="firstTest" source="D:\TI\QA\DEVELOPMENT\appium_robot_bdd\tests\firstTest.robot">
-<test id="s1-t1" name="Should open and close the application" line="6">
-<kw name="Given the application is started" owner="base">
-<kw name="Start session" owner="base">
+<test id="s1-t1" name="TC001 - Should open and close the application" line="7">
+<kw name="Given the application is started" owner="firstTest">
+<kw name="Start session" owner="openApp">
 <kw name="Open Application" owner="AppiumLibrary">
 <arg>http://localhost:4723</arg>
 <arg>automationName=UiAutomator2</arg>
@@ -18,37 +18,37 @@ Please check https://appium.io/docs/en/2.19/guides/caps/
 | *Option*            | *Man.* | *Description*     |
 | remote_url          | Yes    | Appium server url |
 | alias               | No     | alias             |</doc>
-<status status="PASS" start="2026-07-08T16:51:17.788149" elapsed="5.266574"/>
+<status status="PASS" start="2026-07-10T11:12:48.478882" elapsed="4.564053"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:17.787885" elapsed="5.266926"/>
+<status status="PASS" start="2026-07-10T11:12:48.478629" elapsed="4.564397"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:17.787656" elapsed="5.267185"/>
+<status status="PASS" start="2026-07-10T11:12:48.478434" elapsed="4.564622"/>
 </kw>
-<kw name="When the title should be visible" owner="base">
+<kw name="When the title should be visible" owner="firstTest">
 <kw name="Wait For Home Element" owner="firstTest">
 <kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
-<msg time="2026-07-08T16:51:27.192294" level="INFO">criteria is com.food.diary:id/toolbar</msg>
-<arg>${HOME_ELEMENT}</arg>
+<msg time="2026-07-10T11:12:57.186118" level="INFO">criteria is com.food.diary:id/toolbar</msg>
+<arg>${homepage.homeElement}</arg>
 <doc>Waits until the element specified by the ``locator`` is visible.</doc>
-<status status="PASS" start="2026-07-08T16:51:23.055389" elapsed="4.137025"/>
+<status status="PASS" start="2026-07-10T11:12:53.043564" elapsed="4.142630"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:23.055239" elapsed="4.137258"/>
+<status status="PASS" start="2026-07-10T11:12:53.043455" elapsed="4.142787"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:23.055075" elapsed="4.137463"/>
+<status status="PASS" start="2026-07-10T11:12:53.043296" elapsed="4.142967"/>
 </kw>
-<kw name="Then the application should be closed" owner="base">
-<kw name="Close session" owner="base">
+<kw name="Then the application should be closed" owner="firstTest">
+<kw name="Close session" owner="firstTest">
 <kw name="Close Application" owner="AppiumLibrary">
 <doc>Closes the current application and the webdriver session.</doc>
-<status status="PASS" start="2026-07-08T16:51:27.193256" elapsed="2.333134"/>
+<status status="PASS" start="2026-07-10T11:12:57.186757" elapsed="2.326151"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:27.193108" elapsed="2.333350"/>
+<status status="PASS" start="2026-07-10T11:12:57.186665" elapsed="2.326306"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:27.192878" elapsed="2.333601"/>
+<status status="PASS" start="2026-07-10T11:12:57.186511" elapsed="2.326481"/>
 </kw>
-<status status="PASS" start="2026-07-08T16:51:17.787063" elapsed="11.739583"/>
+<status status="PASS" start="2026-07-10T11:12:48.478018" elapsed="11.035146"/>
 </test>
-<status status="PASS" start="2026-07-08T16:51:17.553260" elapsed="11.973746"/>
+<status status="PASS" start="2026-07-10T11:12:48.271747" elapsed="11.241786"/>
 </suite>
 <statistics>
 <total>
