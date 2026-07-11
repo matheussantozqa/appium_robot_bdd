@@ -61,7 +61,7 @@ jobs:
           passed = stats.attrib.get('pass', '0')
           " || true
           
-          echo '## 🤖 Resultado dos Testes Robot Framework' >> "$GITHUB_STEP_SUMMARY"
+          echo '## Testes Results Food Diary' >> "$GITHUB_STEP_SUMMARY"
           echo '' >> "$GITHUB_STEP_SUMMARY"
           python3 << 'EOF' >> "$GITHUB_STEP_SUMMARY"
           import xml.etree.ElementTree as ET
@@ -71,9 +71,9 @@ jobs:
           passed = int(stat.get('pass'))
           failed = int(stat.get('fail'))
           total = passed + failed
-          status = "✅ SUCESSO" if failed == 0 else "❌ FALHOU"
-          print(f"**Status geral:** {status}")
-          print(f"| Total | Passou | Falhou |")
+          status = "✅ SUCCESS" if failed == 0 else "❌ FAILED"
+          print(f"**general Status: ** {status}")
+          print(f"| Total | Passed | Failed |")
           print(f"|-------|--------|--------|")
           print(f"| {total} | {passed} | {failed} |")
           print()
