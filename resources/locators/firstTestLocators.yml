@@ -1,3 +1,3 @@
 homepage:
-  homeElement: id=isso_nao_existe_123456789
+  homeElement: "id=com.food.diary:id/toolbar"
   # "id=com.food.diary:id/toolbar"
