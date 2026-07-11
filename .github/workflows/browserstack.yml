@@ -88,9 +88,9 @@ jobs:
           EOF
 
           cat > allure-results/environment.properties << EOF
-          Plataforma=Android
-          Dispositivo=Google Pixel 7
-          Execucao=BrowserStack App Automate
+          Platform=Android
+          Device=Google Pixel 7
+          Execution=BrowserStack App Automate
           Build=${{ github.run_number }}
           Branch=${{ github.ref_name }}
           EOF
